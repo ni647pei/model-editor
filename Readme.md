@@ -1,4 +1,4 @@
-![Logo](https://github.com/ni647pei/model-editor/editor/images/logo/favicons/android-chrome-192x192.png)
+![Logo](https://github.com/ni647pei/model-editor/blob/master/editor/images/logo/favicons/android-chrome-192x192.png)
 
 # LNG Model Editor
 
