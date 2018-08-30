@@ -1,4 +1,4 @@
-![Logo](https://bytebucket.org/woodsideproject/3dmodeleditor/raw/acf3fb3daf2969472859005885a389409ac3fd36/editor/images/logo/favicons/android-chrome-192x192.png?token=fe82e565c160c1450b370af5b39976062bd092de)
+![Logo](https://github.com/ni647pei/model-editor/editor/images/logo/favicons/android-chrome-192x192.png)
 
 # LNG Model Editor
 
