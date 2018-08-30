@@ -8,11 +8,11 @@
 * [ Github ](https://github.com/mrdoob/three.js)
 
 ### Table of Contents
-- [ Become a pro user in 5 minutes ](https://github.com/ni647pei/model-editor#markdown-header-become-a-pro-user-in-5-minutes)
+- [ Become a pro user in 5 minutes ](#become-a-pro-user-in-5-minutes)
 
-- [ Bugs waiting to be fixed ](https://bytebucket.org/woodsideproject/3dmodeleditor/overview#markdown-header-bugs-waiting-to-be-fixed)
+- [ Bugs waiting to be fixed ](#bugs-waiting-to-be-fixed)
 
-- [ Features for the Future ](https://bytebucket.org/woodsideproject/3dmodeleditor/overview#markdown-header-features-for-the-future)
+- [ Features for the Future ](#features-for-the-future)
 
 ***
 
