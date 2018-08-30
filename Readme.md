@@ -85,7 +85,7 @@
 
 ## Features for the Future
 #### 1. Make the items listed in the scene outliner collapsible. 
-- Instaed of listing every object in the scene, make them collapsible to prevent the pain of scrolling if there are too many objects in the scene.
+- Instaed of listing every object in the scene, make them collapsible to prevent the pain of scrolling if there are too many objects in the scene. 
 ![Editor interface](https://github.com/ni647pei/model-editor/blob/master/future/collapsible%20example.jpg)
 
 #### 2. A palette of user-generated models
