@@ -1,0 +1,133 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "A9BB80DF-16D7-4506-A512-1B3606AC3952",
+			"type": "BasicCylinderGeometry",
+			"radius": 600,
+			"height": 3000,
+			"radialSegments": 24,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "C8C1E2F5-5052-441C-A39A-8EB68E4777C9",
+			"type": "CapGeometry",
+			"buttomRadius": 600,
+			"height": 300,
+			"segments": 24
+		},
+		{
+			"uuid": "DD90B16B-8C99-4AFB-9D4D-2F6345ED7FA1",
+			"type": "CapGeometry",
+			"buttomRadius": 600,
+			"height": 300,
+			"segments": 24
+		},
+		{
+			"uuid": "B36CD29F-ADFD-401D-954D-4B4CE52FD84B",
+			"type": "BoxGeometry",
+			"width": 810,
+			"height": 144,
+			"depth": 550
+		},
+		{
+			"uuid": "A213AF3E-30FD-404C-9C8C-14044CF3D214",
+			"type": "BoxGeometry",
+			"width": 810,
+			"height": 144,
+			"depth": 550
+		}],
+	"materials": [
+		{
+			"uuid": "146B32CC-C83F-4C27-9895-89AFAFD9F889",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		},
+		{
+			"uuid": "7B105B6B-E3A0-4244-B488-AB679CF4F7A6",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		},
+		{
+			"uuid": "2829F0A6-526E-496B-8808-FA582421DE63",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		}],
+	"object": {
+		"uuid": "64968451-E8D8-4C43-82F2-0B83F475EA11",
+		"type": "Group",
+		"name": "1V_1302",
+		"matrix": [1,0,0,0,0,-1,0,0,0,0,-1,0,0,0,1065.886737,1],
+		"children": [
+			{
+				"uuid": "D873B151-A98C-472A-A012-649F6B070A10",
+				"type": "Mesh",
+				"name": "Cylinder 8",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+				"geometry": "A9BB80DF-16D7-4506-A512-1B3606AC3952",
+				"material": "146B32CC-C83F-4C27-9895-89AFAFD9F889"
+			},
+			{
+				"uuid": "47A3654E-68E6-4930-9A9A-0B18384F6E9B",
+				"type": "Mesh",
+				"name": "Cap 9",
+				"matrix": [-0.984196,0,0.177085,0,0,-1,0,0,0.177085,0,0.984196,0,0,0,0,1],
+				"geometry": "C8C1E2F5-5052-441C-A39A-8EB68E4777C9",
+				"material": "7B105B6B-E3A0-4244-B488-AB679CF4F7A6"
+			},
+			{
+				"uuid": "883AFF13-730A-4B32-A054-509082E481B6",
+				"type": "Mesh",
+				"name": "Cap 9",
+				"matrix": [0.984196,0,-0.177085,0,0,1,0,0,0.177085,0,0.984196,0,0,3000,0,1],
+				"geometry": "DD90B16B-8C99-4AFB-9D4D-2F6345ED7FA1",
+				"material": "7B105B6B-E3A0-4244-B488-AB679CF4F7A6"
+			},
+			{
+				"uuid": "42E1907C-B621-46E1-9511-F7648FFD1B2C",
+				"type": "Group",
+				"name": "Stand",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+				"children": [
+					{
+						"uuid": "2E022A41-872B-4971-B518-9F56C5131D54",
+						"type": "Mesh",
+						"name": "Box 1",
+						"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,2500,600,1],
+						"geometry": "B36CD29F-ADFD-401D-954D-4B4CE52FD84B",
+						"material": "2829F0A6-526E-496B-8808-FA582421DE63"
+					},
+					{
+						"uuid": "2D05879E-BCAD-4121-B797-288849C42561",
+						"type": "Mesh",
+						"name": "Box 1",
+						"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,572,600,1],
+						"geometry": "A213AF3E-30FD-404C-9C8C-14044CF3D214",
+						"material": "2829F0A6-526E-496B-8808-FA582421DE63"
+					}]
+			}]
+	}
+}

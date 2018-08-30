@@ -1,0 +1,37 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "3E2814C1-661E-4CDB-B063-621E6A678242",
+			"type": "BasicCylinderGeometry",
+			"radius": 2644,
+			"height": 10600,
+			"radialSegments": 24,
+			"heightSegments": 1,
+			"openEnded": false
+		}],
+	"materials": [
+		{
+			"uuid": "1BB74D1E-F5DF-4E53-B9F9-05C45E6E7970",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		}],
+	"object": {
+		"uuid": "7CC08111-BE8D-484A-8466-EB39CBAF2D07",
+		"type": "Mesh",
+		"name": "Cylinder 3",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"geometry": "3E2814C1-661E-4CDB-B063-621E6A678242",
+		"material": "1BB74D1E-F5DF-4E53-B9F9-05C45E6E7970"
+	}
+}

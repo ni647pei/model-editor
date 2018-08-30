@@ -1,0 +1,98 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "289B61A3-CD15-44A2-B7A4-734A6E4F2C5B",
+			"type": "CapGeometry",
+			"buttomRadius": 536,
+			"height": 268,
+			"segments": 24
+		},
+		{
+			"uuid": "18CDD949-AC22-468B-AAA1-8E1334A45001",
+			"type": "BasicCylinderGeometry",
+			"radius": 536,
+			"height": 3800,
+			"radialSegments": 24,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "503051CE-0120-4AA3-AB5C-727D019AE646",
+			"type": "BasicCylinderGeometry",
+			"radius": 620,
+			"height": 200,
+			"radialSegments": 24,
+			"heightSegments": 1,
+			"openEnded": false
+		}],
+	"materials": [
+		{
+			"uuid": "722E7305-7486-4870-A6FE-141426A4156D",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		},
+		{
+			"uuid": "8EA0D2E3-145D-4BDE-ADA5-5CA1F5833721",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		},
+		{
+			"uuid": "A1E0D410-C777-48C3-B8D4-5D0EE8029E99",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.5,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		}],
+	"object": {
+		"uuid": "7453DBF9-A7BF-4D5D-98B9-DB2A83999173",
+		"type": "Group",
+		"name": "1V_1301",
+		"matrix": [1,0,0,0,0,0,1,0,0,-1,0,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "F5F58817-6DBA-4490-B66A-025B6B1563DE",
+				"type": "Mesh",
+				"name": "Cap 6",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,4000,0,1],
+				"geometry": "289B61A3-CD15-44A2-B7A4-734A6E4F2C5B",
+				"material": "722E7305-7486-4870-A6FE-141426A4156D"
+			},
+			{
+				"uuid": "95FB62AE-518C-4AAC-939E-A8740E28F609",
+				"type": "Mesh",
+				"name": "Cylinder 5",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,200,0,1],
+				"geometry": "18CDD949-AC22-468B-AAA1-8E1334A45001",
+				"material": "8EA0D2E3-145D-4BDE-ADA5-5CA1F5833721"
+			},
+			{
+				"uuid": "75201C3E-446D-43B0-94AA-06203C71AE1E",
+				"type": "Mesh",
+				"name": "Cylinder 7",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.000975,0,1],
+				"geometry": "503051CE-0120-4AA3-AB5C-727D019AE646",
+				"material": "A1E0D410-C777-48C3-B8D4-5D0EE8029E99"
+			}]
+	}
+}

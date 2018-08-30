@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LNG Model Editor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicons/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/favicons/manifest.json">
+    <link rel="mask-icon" href="images/logo/favicons/safari-pinned-tab.svg" color="#5bbad5">
+</head>
+
+<body>
+    <link href="css/main.css" rel="stylesheet" />
+    <link id="theme" href="css/dark.css" rel="stylesheet" />
+
+    <script src="../build/three.js"></script>   <!-- You can find all the geometries here --> 
+    
+    <script src="../src/js/libs/system.min.js"></script>
+
+    <script src="../src/js/controls/EditorControls.js"></script>
+    <script src="../src/js/controls/TransformControls.js"></script>
+
+    <script src="../src/js/libs/jszip.min.js"></script>
+    <script src="../src/js/libs/inflate.min.js"></script>
+
+    <script src="../src/js/loaders/AMFLoader.js"></script>
+    <script src="../src/js/loaders/AWDLoader.js"></script>
+    <script src="../src/js/loaders/BabylonLoader.js"></script>
+    <script src="../src/js/loaders/ColladaLoader.js"></script>
+    <script src="../src/js/loaders/FBXLoader.js"></script>
+    <script src="../src/js/loaders/GLTFLoader.js"></script>
+    <script src="../src/js/loaders/KMZLoader.js"></script>
+    <script src="../src/js/loaders/MD2Loader.js"></script>
+    <script src="../src/js/loaders/OBJLoader.js"></script>
+    <script src="../src/js/loaders/MTLLoader.js"></script>
+    <script src="../src/js/loaders/PlayCanvasLoader.js"></script>
+    <script src="../src/js/loaders/PLYLoader.js"></script>
+    <script src="../src/js/loaders/STLLoader.js"></script>
+    <script src="../src/js/loaders/TGALoader.js"></script>
+    <script src="../src/js/loaders/TDSLoader.js"></script>
+    <script src="../src/js/loaders/UTF8Loader.js"></script>
+    <script src="../src/js/loaders/VRMLLoader.js"></script>
+    <script src="../src/js/loaders/VTKLoader.js"></script>
+    <script src="../src/js/loaders/ctm/lzma.js"></script>
+    <script src="../src/js/loaders/ctm/ctm.js"></script>
+    <script src="../src/js/loaders/ctm/CTMLoader.js"></script>
+    <script src="../src/js/exporters/OBJExporter.js"></script>
+    <script src="../src/js/exporters/GLTFExporter.js"></script>
+    <script src="../src/js/exporters/STLExporter.js"></script>
+
+    <script src="../src/js/renderers/Projector.js"></script>
+    <script src="../src/js/renderers/CanvasRenderer.js"></script>
+    <script src="../src/js/renderers/RaytracingRenderer.js"></script>
+    <script src="../src/js/renderers/SoftwareRenderer.js"></script>
+    <script src="../src/js/renderers/SVGRenderer.js"></script>
+
+    <link rel="stylesheet" href="js/libs/codemirror/codemirror.css">
+    <link rel="stylesheet" href="js/libs/codemirror/theme/monokai.css">
+    <script src="js/libs/codemirror/codemirror.js"></script>
+    <script src="js/libs/codemirror/mode/javascript.js"></script>
+    <script src="js/libs/codemirror/mode/glsl.js"></script>
+
+    <script src="js/libs/esprima.js"></script>
+    <script src="js/libs/jsonlint.js"></script>
+    <script src="js/libs/glslprep.min.js"></script>
+
+    <link rel="stylesheet" href="js/libs/codemirror/addon/dialog.css">
+    <link rel="stylesheet" href="js/libs/codemirror/addon/show-hint.css">
+    <link rel="stylesheet" href="js/libs/codemirror/addon/tern.css">
+    <script src="js/libs/codemirror/addon/dialog.js"></script>
+    <script src="js/libs/codemirror/addon/show-hint.js"></script>
+    <script src="js/libs/codemirror/addon/tern.js"></script>
+    <script src="js/libs/acorn/acorn.js"></script>
+    <script src="js/libs/acorn/acorn_loose.js"></script>
+    <script src="js/libs/acorn/walk.js"></script>
+    <script src="js/libs/ternjs/polyfill.js"></script>
+    <script src="js/libs/ternjs/signal.js"></script>
+    <script src="js/libs/ternjs/tern.js"></script>
+    <script src="js/libs/ternjs/def.js"></script>
+    <script src="js/libs/ternjs/comment.js"></script>
+    <script src="js/libs/ternjs/infer.js"></script>
+    <script src="js/libs/ternjs/doc_comment.js"></script>
+    <script src="js/libs/tern-threejs/threejs.js"></script>
+
+    <script src="js/libs/signals.min.js"></script>
+    <script src="js/libs/ui.js"></script>
+    <script src="js/libs/ui.three.js"></script>
+
+    <script src="js/libs/app.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Script.js"></script>
+
+    <script src="js/Storage.js"></script>
+
+    <script src="js/Editor.js"></script>
+    <script src="js/Config.js"></script>
+    <script src="js/History.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/Menubar.js"></script>
+    <script src="js/Menubar.File.js"></script>
+    <script src="js/Menubar.Edit.js"></script>
+    <script src="js/Menubar.Add.js"></script>
+    <script src="js/Menubar.Status.js"></script>
+    <script src="js/Sidebar.js"></script>
+    <script src="js/Sidebar.Scene.js"></script>
+    <script src="js/Sidebar.Project.js"></script>
+    <script src="js/Sidebar.Settings.js"></script>
+    <script src="js/Sidebar.Properties.js"></script>
+    <script src="js/Sidebar.Object.js"></script>
+    <script src="js/Sidebar.Geometry.js"></script>
+    <script src="js/Sidebar.Geometry.Modifiers.js"></script>
+    <script src="js/Sidebar.Geometry.Geometry.js"></script>
+    <script src="js/Sidebar.Geometry.BufferGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.BoxGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.CircleGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.CylinderGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.PlaneGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.SphereGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.TorusGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.LatheGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.CapGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.WeirdConeGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.TiltConeGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.BasicCylinderGeometry.js"></script>
+    <script src="js/Sidebar.Geometry.SquareConeGeometry.js"></script>
+    <script src="js/Sidebar.Material.js"></script>
+    <script src="js/Sidebar.Animation.js"></script>
+    <script src="js/Sidebar.History.js"></script>
+
+
+    <script src="js/Toolbar.js"></script>
+    <script src="js/Viewport.js"></script>
+    <script src="js/Viewport.Info.js"></script>  <!-- Object's information at the left corner -->
+
+    <script src="js/Command.js"></script>
+    <script src="js/commands/AddObjectCommand.js"></script>
+    <script src="js/commands/RemoveObjectCommand.js"></script>
+    <script src="js/commands/MoveObjectCommand.js"></script>
+    <script src="js/commands/SetPositionCommand.js"></script>
+    <script src="js/commands/SetRotationCommand.js"></script>
+    <script src="js/commands/SetScaleCommand.js"></script>
+    <script src="js/commands/SetValueCommand.js"></script>
+    <script src="js/commands/SetUuidCommand.js"></script>
+    <script src="js/commands/SetColorCommand.js"></script>
+    <script src="js/commands/SetGeometryCommand.js"></script>
+    <script src="js/commands/SetGeometryValueCommand.js"></script>
+    <script src="js/commands/MultiCmdsCommand.js"></script>
+    <script src="js/commands/SetMaterialCommand.js"></script>
+    <script src="js/commands/SetMaterialValueCommand.js"></script>
+    <script src="js/commands/SetMaterialColorCommand.js"></script>
+    <script src="js/commands/SetMaterialMapCommand.js"></script>
+    <script src="js/commands/SetSceneCommand.js"></script>
+
+
+    <!-- <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="qyqgfqd9j8z890t"></script> -->
+
+    <script src="js/libs/html2canvas.js"></script>
+    <script src="js/libs/three.html.js"></script>
+
+
+    <script src="js/LeftMenu.js"></script>   
+    <script src="js/MultipleSelect.js"></script>  <!-- For Ctrl+click  -->
+    <script src="js/FloatingPanel.js"></script>
+    <script src="js/SwitchViews.js"></script>
+
+
+    <!-- The left hidden menu for adding shapes -->
+    
+    <div id="leftmenu" onmouseover="openMenu()" onmouseout="closeMenu()">
+        <hr id="line">
+        <div class="menu_shapes">
+            <div class="buttons">
+
+                <img id="addGroup" src="images/objects/group4.png" >
+                <img class="shape" id="box" src="images/objects/box.png" >
+                <img class="shape" id="cylinder" src="images/objects/cylinder.png">
+                <img class="shape" id="sphere" src="images/objects/sphere.png">
+                <img class="shape" id="cap" src="images/objects/cap.png">
+                <img class="shape" id="cone_c" src="images/objects/cone_c.png">
+                <img class="shape" id="cone_s" src="images/objects/cone_s.png">
+                <img class="shape" id="cone_w" src="images/objects/cone_wierd.png">
+                <img class="shape" id="cone_t" src="images/objects/cone_tilt.png">
+                <img class="shape" id="torus" src="images/objects/torus.png">
+                <img class="shape" id="plane" src="images/objects/plane.png">
+            </div>
+        </div>
+    </div>
+    
+    <!-- The panel at the right side that only appears when a group of objects is selected -->
+
+    <div id="floatingPanel">
+        <img class="floatBtn" id="confirmGroup" src="images/grouping.png" onclick="confirmGroup('Group ')">
+        <img class="floatBtn" id="unGroup" src="images/ungroup.png" onclick="unGroup()">
+        <img class="floatBtn" src="images/alignz.png" onclick="alignZ()">
+        <img class="floatBtn" src="images/alignx.png" onclick="alignX()">
+        <img class="floatBtn" src="images/aligny.png" onclick="alignY()">
+
+    </div>
+
+   <!-- The buttons at the top right -->
+   
+    <div id="switch_views">
+        <img class="views" id="persp" src="images/views/perspective.png" onclick="PerspectiveView()">
+        <img class="views" id="front" src="images/views/front.png" onclick="frontView()">
+        <img class="views" id="top" src="images/views/top.png" onclick="topView()">
+        <img class="views" id="right" src="images/views/right.png" onclick="rightView()">
+        <img class="views" id="left" src="images/views/left.png" onclick="leftView()">
+        <img class="views" id="bottom" src="images/views/bottom.png" onclick="bottomView()">
+        <img class="views" id="back" src="images/views/back.png" onclick="backView()">
+
+    </div>
+
+    <!----------------------       Just Mockups, not functioning       -------------------------->
+
+    <div id="mockup1">
+        <img id="mockup_create" src="../future/resources/create_model.png" onclick="confirmModel()">
+        <img id="mockup_confirm" src="../future/resources/create_model_confirm.png" onclick="closeMockup1()">
+        <div id="mask"></div>
+
+    </div>
+    <div id="mockup2">
+        <img id="mockup_add" src="../future/resources/Add_model.png" onclick="closeMockup2()">
+        <div id="mask"></div>
+    </div>
+
+    <script>
+        
+        function confirmModel(){
+            
+            document.getElementById("mockup_confirm").style.display = 'block';
+            document.getElementById("mockup_create").style.display = 'none';
+        }
+        function closeMockup1() {
+
+            document.getElementById("mockup_confirm").style.display = 'none';
+            document.getElementById("mockup1").style.display = 'none';
+            document.getElementById("mockup_create").style.display = 'block';
+        }
+
+        function closeMockup2() {
+
+            document.getElementById("mockup2").style.display = 'none';
+        }
+
+    </script>
+    
+    <!-------------------------------------------------------------------------------->
+
+   
+    <script>
+        window.URL = window.URL || window.webkitURL;
+        window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+
+        const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+
+        Number.prototype.format = function() {
+            return this.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+        };
+
+        //
+
+        var editor = new Editor();
+
+        var viewport = new Viewport(editor);
+        document.body.appendChild(viewport.dom);
+
+        var script = new Script(editor);
+        document.body.appendChild(script.dom);
+
+        var player = new Player(editor);
+        document.body.appendChild(player.dom);
+
+        var toolbar = new Toolbar(editor);
+        document.body.appendChild(toolbar.dom);
+
+        var menubar = new Menubar(editor);
+        document.body.appendChild(menubar.dom);
+
+        var sidebar = new Sidebar(editor);
+        document.body.appendChild(sidebar.dom);
+
+        var modal = new UI.Modal();
+        document.body.appendChild(modal.dom);
+
+        //
+
+        editor.setTheme(editor.config.getKey('theme'));
+
+        editor.storage.init(function() {
+
+            editor.storage.get(function(state) {
+
+                if (isLoadingFromHash) return;
+
+                if (state !== undefined) {
+
+                    editor.fromJSON(state);
+
+                }
+
+                var selected = editor.config.getKey('selected');
+
+                if (selected !== undefined) {
+
+                    editor.selectByUuid(selected);
+
+                }
+
+            });
+
+            //
+
+            var timeout;
+
+            function saveState(scene) {
+
+                if (editor.config.getKey('autosave') === false) {
+
+                    return;
+
+                }
+
+                clearTimeout(timeout);
+
+                timeout = setTimeout(function() {
+
+                    editor.signals.savingStarted.dispatch();
+
+                    timeout = setTimeout(function() {
+
+                        editor.storage.set(editor.toJSON());
+
+                        editor.signals.savingFinished.dispatch();
+
+                    }, 100);
+
+                }, 1000);
+
+            };
+
+            var signals = editor.signals;
+
+            signals.geometryChanged.add(saveState);
+            signals.objectAdded.add(saveState);
+            signals.objectChanged.add(saveState);
+            signals.objectRemoved.add(saveState);
+            signals.materialChanged.add(saveState);
+            signals.sceneBackgroundChanged.add(saveState);
+            signals.sceneFogChanged.add(saveState);
+            signals.sceneGraphChanged.add(saveState);
+            signals.scriptChanged.add(saveState);
+            signals.historyChanged.add(saveState);
+
+            signals.showModal.add(function(content) {
+
+                modal.show(content);
+
+            });
+
+        });
+
+        //
+
+
+        document.addEventListener('dragover', function(event) {
+
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'copy';
+
+        }, false);
+
+        document.addEventListener('drop', function(event) {
+
+            event.preventDefault();
+
+            if (event.dataTransfer.files.length > 0) {
+
+                editor.loader.loadFile(event.dataTransfer.files[0]);
+
+            }
+
+        }, false);
+
+        document.addEventListener('keydown', function(event) {
+
+
+            var copy = false; // for Ctrl-C and Ctrl-V
+
+            switch (event.keyCode) {
+
+                case 8: // backspace
+
+                    event.preventDefault(); // prevent browser back
+
+                case 46: // delete
+
+                    var object = editor.selected;
+
+                    //if ( confirm( 'Delete ' + object.name + '?' ) === false ) return;
+
+                    var parent = object.parent;
+                    if (parent !== null) editor.execute(new RemoveObjectCommand(object));
+
+                    break;
+
+                case 90: // Register Ctrl-Z for Undo, Ctrl-Shift-Z for Redo
+
+                    if (IS_MAC ? event.metaKey : event.ctrlKey) {
+
+                        if (event.shiftKey) {
+
+                            editor.redo();
+
+                        } else {
+
+                            editor.undo();
+
+                        }
+
+                    }
+
+                    break;
+
+                case 87: // Register W for translation transform mode
+
+                    editor.signals.transformModeChanged.dispatch('translate');
+
+                    break;
+
+                case 69: // Register E for rotation transform mode
+
+                    editor.signals.transformModeChanged.dispatch('rotate');
+
+                    break;
+
+                case 82: // Register R for scaling transform mode
+
+                    editor.signals.transformModeChanged.dispatch('scale');
+
+                    break;
+
+
+            }
+
+        }, false);
+
+
+        // Ctrl-C , Ctrl-V  --- Copy and Paste 
+
+        var clipboard = new THREE.Group();
+
+        document.addEventListener('keydown', function(event) {
+
+            if (IS_MAC ? event.metaKey : event.ctrlKey) {
+
+                var scene = editor.scene;
+
+                var children = clipboard.children;
+                var copy = false;
+
+                // Copy 
+                if (event.keyCode == 67) {
+
+                    var object = editor.selected;
+
+                    var objectParent = object.parent;
+
+                    if (objectParent !== null) {
+
+                        var lastChild = children[children.length];
+
+                        object = object.clone();
+
+                        editor.execute(new AddObjectCommand(object));
+
+                        editor.execute(new MoveObjectCommand(object, clipboard, lastChild));
+                        //editor.execute(new AddObjectCommand(clipboard));
+
+                        copy = true;
+                        console.log("Copy " + object.name);
+
+                    }
+
+                }
+
+                // Paste
+                if (event.keyCode == 86) {
+
+                    if (copy = true) {
+
+                        var newChildren = scene.children;
+
+                        children.forEach(function(child) {
+
+
+                            newChildren.splice(newChildren.length, 0, child);
+                            child.parent = scene;
+                            this.editor.signals.sceneGraphChanged.dispatch();
+
+                        });
+                        children.splice(0, children.length);
+                        if (clipboard.parent !== null) editor.execute(new RemoveObjectCommand(clipboard));
+
+                        copy = false;
+
+                        //editor.select(newChildren[newChildren.length]  );
+
+                    }
+                }
+            }
+        });
+
+
+        //
+        
+        
+
+        function onWindowResize(event) {
+
+            editor.signals.windowResize.dispatch();
+
+        }
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        onWindowResize();
+
+        //
+
+        var isLoadingFromHash = false;
+        var hash = window.location.hash;
+
+        if (hash.substr(1, 5) === 'file=') {
+
+            var file = hash.substr(6);
+
+            if (confirm('Any unsaved data will be lost. Are you sure?')) {
+
+                var loader = new THREE.FileLoader();
+                loader.crossOrigin = '';
+                loader.load(file, function(text) {
+
+                    editor.clear();
+                    editor.fromJSON(JSON.parse(text));
+
+                });
+
+                isLoadingFromHash = true;
+
+            }
+
+        }
+
+        /*
+        window.addEventListener( 'message', function ( event ) {
+
+        	editor.clear();
+        	editor.fromJSON( event.data );
+
+        }, false );
+        */
+
+    </script>
+</body>
+
+</html>

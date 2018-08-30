@@ -1,0 +1,455 @@
+#mask{
+    
+    height:100%;
+    width:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:8;
+    background-color:white;
+    opacity: 0.5;
+}
+
+#mockup1{
+    
+    display: none;
+    
+}
+#mockup_create {
+    
+    display: block;
+    position: fixed;
+    top: 13%;
+    left: 20%;
+	width: 60%;
+    z-index: 10;
+    
+}
+#mockup_confirm {
+	
+    display: none;
+    position: fixed;
+    left:30%;
+    top: 13%;
+    width: 40%;
+    z-index: 10;
+}
+
+#mockup2{
+
+    display: none;
+    
+}
+#mockup_add {
+
+    display: block;
+    position: fixed;
+    left:35%;
+    top: 20%;
+    width: 30%;
+    z-index: 10;
+    
+}
+
+body{
+    background-color: #333333;
+}
+button {
+    color: #E5E5E5;
+    background-color: transparent;
+    border: 1px solid #E5E5E5;
+	padding: 3px 6px;
+    margin-left: 5px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+}
+
+	button:hover {
+        background-color: #E5E5E5;
+        color: #333333;
+	}
+
+	button.selected {
+        background-color: #E5E5E5;
+        color: #333333;
+	}
+
+input, textarea {
+	border: 1px solid transparent;
+    color: #333333;
+}
+
+input.Number {
+    color: #FFCE00!important;
+	font-size: 12px;
+	border: 0px;
+	padding: 2px;
+	cursor: col-resize;
+}
+
+select {
+    color: #333333;
+    background-color: #D1D1D1;
+	border: 0px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+}
+
+	select:hover {
+		background-color: #fff;
+	}
+
+select option:hover{
+    background-color: #FFCE00;
+}
+
+/* UI */
+
+#viewport {
+	position: absolute;
+	top: 0;
+	left: 0px;
+	right: 300px;
+	bottom: 32px;
+    z-index: -1;
+}
+
+	#viewport #info {
+		text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+		pointer-events: none;
+        margin-left: 20px;
+        transition: 0.3s;
+	}
+
+
+
+#player {
+	position: absolute;
+	top: 32px;
+	left: 0;
+	right: 300px;
+	bottom: 32px;
+}
+
+#menubar {
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	padding: 0;
+	margin: 0;
+	right: 0;
+	top: 0;
+}
+
+#leftmenu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: #1E1E1E;
+    overflow: auto;
+    box-sizing: border-box;
+    box-shadow: 2px 0 5px #000000c2;
+    overflow-x: hidden;
+    transition: 0.3s;
+    
+}
+
+
+#line{
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-top: 1px solid #ccc;
+}
+.buttons {
+    padding: 5px;
+    margin-top: 15%;
+    
+}
+
+.shape{
+    display:inline-block;
+    width: 0;
+    margin-left: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    
+}
+
+.shape:hover{
+    
+    outline: 2px solid #FFCE00;
+    outline-offset: -2px;
+    
+}
+
+#addGroup{
+    display:inline-block;
+    width: 0;
+    margin-left: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+}
+
+#addGroup:hover{
+    transition: 0.1s;
+    outline: 2px solid #FFCE00;
+    outline-offset: -2px;
+
+}
+
+
+
+
+	#menubar .menu {
+		float: left;
+		cursor: pointer;
+		padding-right: 8px;
+	}
+
+	#menubar .menu.right {
+		position: absolute;
+        
+        top: 5px;
+        right: 5px;
+		cursor: auto;
+		
+		text-align: right;
+	}
+
+		#menubar .menu .title {
+			display: inline-block;
+            color: #E0E0E0;
+			
+            margin-top: 10px;
+			margin-left: 30px;
+		}
+        #menubar .menu .title:hover {
+            color: white;
+        }
+    
+
+
+
+		#menubar .menu .options {
+			position: fixed;
+			display: none;
+			padding: 5px 0;
+			background: #eee;
+			width: 150px;
+			max-height: calc(100% - 80px);
+			overflow: auto;
+		}
+
+		#menubar .menu:hover .options {
+			display: block;
+		}
+
+			#menubar .menu .options hr {
+				border-color: #ddd;
+			}
+
+			#menubar .menu .options .option {
+                color: #232323;
+				background-color: transparent;
+				padding: 5px 10px;
+				margin: 0 !important;
+			}
+
+				#menubar .menu .options .option:hover {
+                    color: #232323;
+                    background-color: #FFCE00;
+				}
+
+				#menubar .menu .options .option:active {
+					color: black;
+					background: transparent;
+				}
+
+		#menubar .menu .options .inactive {
+			color: #bbb;
+			background-color: transparent;
+			padding: 5px 10px;
+			margin: 0 !important;
+		}
+
+.selects .select:hover{
+    color: #232323;
+    background-color: #FFCE00;
+}
+
+#floatingPanel {
+    display: none;
+    position: fixed;
+    right: 320px;
+    top: 40%;
+    width: 60px;
+    height: auto;
+    background: #1E1E1E;
+    overflow: auto;
+    box-sizing: border-box;
+    box-shadow: -2px 0 5px #000000c2;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0;
+    overflow: hidden;
+    z-index: 5;
+}
+
+
+.floatBtn{
+    display:inline-block;
+    width: 40px;
+    cursor: pointer;
+    
+    margin-bottom: 10px;
+
+}
+
+.floatBtn:hover{
+    transition: 0.1s;
+    outline: 1px solid #FFCE00;
+
+}
+
+#switch_views {
+    display: block;
+    position: fixed;
+    right: 312px;
+    top: 12px;
+    width: auto;
+    height: 50px;
+    overflow: visible;
+    z-index: 3;
+}
+
+.views{
+    display:inline-block;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 12px;
+    padding-bottom: 10px;
+
+}
+
+.views:hover{
+    transition: 0.1s;
+    padding-bottom: 6px;
+    border-bottom: 4px solid #EDEDED;
+    
+}
+
+#sidebar {
+	position: absolute;
+	right: 0;
+	top: 32px;
+	bottom: 0;
+	width: 300px;
+    background: #1E1E1E;
+	overflow: auto;
+    box-shadow: -2px 0 5px #000000c2;
+}
+
+	#sidebar * {
+		vertical-align: middle;
+	}
+
+	#sidebar .Panel {
+        color: #D1D1D1;
+		padding: 10px;
+		border-top: 1px solid #ccc;
+	}
+
+	#sidebar .Panel.collapsed {
+		margin-bottom: 0;
+	}
+
+	#sidebar .Row {
+		min-height: 20px;
+		margin-bottom: 10px;
+	}
+
+.center{
+    border: none;
+}
+.center:hover{
+    border: 1px solid #FFCE00;
+}
+
+
+#tabs {
+    background-color: #333333;
+	border-top: 1px solid #ccc;
+}
+
+	#tabs span {
+        color: white;
+		padding: 10px;
+	}
+
+	#tabs span.selected {
+		color: white;
+        background-color: #1E1E1E;
+	}
+
+#toolbar {
+	position: absolute;
+	left: 0px;
+    padding-left: 230px;
+	right: 300px;
+	bottom: 0;
+	height: 32px;
+    background: #3F3F3F;
+	color: #333;
+    z-index: -1;
+}
+#gridText{
+    margin-left: 10px;
+}
+
+	#toolbar * {
+		vertical-align: middle;
+	}
+
+	#toolbar .Panel {
+		padding: 4px;
+        color: #B7B7B7;
+	}
+
+	#toolbar button {
+		margin-right: 6px;
+	}
+
+.Outliner {
+	color: #444;
+    background-color: rgba(255,255,255,0.2);;
+	padding: 0;
+	width: 100%;
+	height: 23vw;
+	font-size: 12px;
+	cursor: default;
+	overflow: auto;
+	outline: none !important;
+}
+
+	.Outliner .option {
+		padding: 4px;
+        color: #D1D1D1;
+		white-space: nowrap;
+	}
+
+	.Outliner .option:hover {
+		background-color: rgba(0,0,0,0.2);
+	}
+
+	.Outliner .option.active {
+		background-color: rgba(0,0,0,0.4);
+	}
